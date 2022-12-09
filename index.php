@@ -191,14 +191,73 @@
 
               <div class="table-responsive">
 
-                <table id="user-signups" class="table table-striped table-bordered table-checkable"> 
-                  <thead> 
-                    <tr>
-                      <th class="hidden-xs">Name</th> 
-                      <th>Mobile Number</th> 
-                      <th>You'll give</th>
-                      <th>You'll get</th>
-                      <th>Action</th>
+     <?php         
+              // get data from database on page
+ // create connection
+              $servername = "localhost";
+              $username = "root";
+              $password = "";
+              $dbname = "khatabook";
+              
+     // Create connection
+              $join = mysqli_connect($servername, $username, "", $dbname);
+     // Check connection
+              if (!$join) {
+                die("Connection failed: ". mysqli_connect_error());
+              }else{
+                
+              }     
+
+     // Attempt select query execution
+                  $sql = "SELECT * FROM view"; // view is our database taable
+                  if($rlt = mysqli_query($join, $sql)){  // if connection and sql query going good. then do next.
+                      if(mysqli_num_rows($rlt) > 0){ // result greter then 0 then we echo here our table.
+
+                        echo '<table id="user-signups" class="table table-striped table-bordered table-checkable">';
+                        echo "<thead>";
+                        echo "<tr>";
+                        echo "<th>Name</th>"; 
+                        echo "<th>Mobile Number</th>"; 
+                        echo "<th>You'll give</th>";
+                        echo "<th>You'll get</th>";
+                        echo "<th>Action</th>";
+                        echo "</tr>";
+                        echo "</thead>";
+                        echo "<tbody>";
+                        while($row = mysqli_fetch_array($rlt)){  // feching with while loop.
+                          echo "<tr>";
+                          // echo "<td>" . $row['id'] . "</td>";
+                                        echo "<td>" . $row['name'] . "</td>";  // these are our databese table colunm name.
+                                        echo "<td>" . $row['mob'] . "</td>";
+                                        echo "<td>" . $row['ygive'] . "</td>";
+                                        echo "<td>" . $row['yget'] . "</td>";
+                                        echo "<td>";     // below <a> tag for action colunm. when we need we can use it.
+                                        // echo '<a href="update.php?id='. $row['id'] .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
+                                        // echo '<a href="delete.php?id='. $row['id'] .'" title="Delete Record"><span class="fa fa-trash"></span></a>';
+                                        echo "</td>";
+                                        echo "</tr>";
+                                      }
+                                      echo "</tbody>";
+                                      echo "</table>";
+            // Free result set
+                            mysqli_free_result($rlt); 
+                      }else{
+                        echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
+                    }
+                } else{
+                    echo "Oops! Something went wrong. Please try again later.";
+                }
+
+                // Close connection
+                mysqli_close($join);
+                 ?>
+                   <!-- below comment is our old old code incase we need we can use it -->
+                    
+                      <!-- // <th class="hidden-xs">Name</th> 
+                      // <th>Mobile Number</th> 
+                      // <th>You'll give</th>
+                      // <th>You'll get</th>
+                      // <th>Action</th>
                     </tr> 
                   </thead> 
 
@@ -251,11 +310,11 @@
 
                   </tbody> 
 
-                </table>
+                </table> -->
                   
 
               </div> <!-- /.table-responsive -->
-                  
+               
             </div> <!-- /.portlet-content -->
 
 
@@ -277,15 +336,18 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h3 class="modal-title">Confirm Action</h3>
+        <h3 class="modal-title">Confirm Delete</h3>
       </div>
+     <form action="delete.php">
       <div class="modal-body">
         <p>Are you sure ?</p>
       </div>
+    
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Yes</button>
+        <button type="submit" class="btn btn-primary" data-dismiss="modal">Yes</button>
       </div>
+    </form>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
