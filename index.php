@@ -233,7 +233,7 @@
                                         echo "<td>" . $row['yget'] . "</td>";
                                         echo "<td>";     // below <a> tag for action colunm. when we need we can use it.
                                         // echo '<a href="update.php?id='. $row['id'] .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
-                                        // echo '<a href="delete.php?id='. $row['id'] .'" title="Delete Record"><span class="fa fa-trash"></span></a>';
+                                         echo '<a href="delete.php?id='. $row['id'] .'" title="Delete Record"><span class="fa fa-trash"></span></a>';
                                         echo "</td>";
                                         echo "</tr>";
                                       }
@@ -363,21 +363,29 @@
         
 
 
-        <form action="add_customer.php" method="post">
+        <form action="add_customer.php" method="POST">
         <div class="form-group">
           <label for="name">Name</label>
-          <input type="text" id="name" name="name" class="form-control" data-required="true" >
+          <input type="text" id="name" name="fname" class="form-control" data-required="true" >
         </div>
 
         <div class="form-group">
           <label for="name">Mobile Number</label>
-          <input type="number" id="name" name="phone" class="form-control" data-required="true" >
+          <input type="number" id="mob" name="mob" class="form-control" data-required="true" >
+      
+          <div class="form-group">
+          <label for="name">You Will Give</label>
+          <input type="number" id="ygive" name="ygive" class="form-control" data-required="true" >
+      
+          <div class="form-group">
+          <label for="name">You Will Get</label>
+          <input type="number" id="yget" name="yget" class="form-control" data-required="true" >
 
 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-tertiary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-secondary" data-dismiss="modal">Add</button>
+        <button type="submit" name="submit" class="btn btn-secondary" data-dismiss="modal">Add</button>
       </div>
     </form>
     </div><!-- /.modal-content -->

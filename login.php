@@ -34,7 +34,7 @@
         </div> 
         <div class="form-group">
           <button type="button" class="btn btn-primary btn-block btn-lg" onclick="userLogin()" tabindex="4">
-            Signin 
+            Sign-in 
           </button>
         </div> 
       </form>
