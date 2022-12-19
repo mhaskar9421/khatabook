@@ -28,10 +28,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 //   $row = mysqli_num_rows($result);
 //   print_r($row);
   if ($result){
-    echo alert('Customer Added Successfully..!!');
+    echo "Customer added succsessfully..!";
   }
   else{
-    echo alert('Something Went Wrong ---> '). mysqli_error($join);
+    echo "Somthing Went Wrong---> ". mysqli_error($join);
 }
 
 

@@ -216,6 +216,7 @@
                         echo '<table id="user-signups" class="table table-striped table-bordered table-checkable">';
                         echo "<thead>";
                         echo "<tr>";
+                        echo "<th>Sr.No</th>"; 
                         echo "<th>Name</th>"; 
                         echo "<th>Mobile Number</th>"; 
                         echo "<th>You'll give</th>";
@@ -227,13 +228,15 @@
                         while($row = mysqli_fetch_array($rlt)){  // feching with while loop.
                           echo "<tr>";
                           // echo "<td>" . $row['id'] . "</td>";
-                                        echo "<td>" . $row['name'] . "</td>";  // these are our databese table colunm name.
+                                        echo "<td>" . $row['id'] . "</td>";
+                                        echo "<td>" . $row['fname'] . "</td>";  // these are our databese table colunm name.
                                         echo "<td>" . $row['mob'] . "</td>";
                                         echo "<td>" . $row['ygive'] . "</td>";
                                         echo "<td>" . $row['yget'] . "</td>";
                                         echo "<td>";     // below <a> tag for action colunm. when we need we can use it.
-                                        // echo '<a href="update.php?id='. $row['id'] .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
-                                         echo '<a href="delete.php?id='. $row['id'] .'" title="Delete Record"><span class="fa fa-trash"></span></a>';
+                                         echo '<a href="update.php?id='. $row['id'] .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
+                                         echo '<a href="delete.php?id='. $row['id'] .'" class="mr-3" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash">Dlt</span></a>';
+                                        // echo '<a href="delete.php?id='. $row['id'] .'" title="Delete Record"><span class="fa fa-trash"></span></a>';
                                         echo "</td>";
                                         echo "</tr>";
                                       }
@@ -251,6 +254,8 @@
                 // Close connection
                 mysqli_close($join);
                  ?>
+
+                 
                    <!-- below comment is our old old code incase we need we can use it -->
                     
                       <!-- // <th class="hidden-xs">Name</th> 
