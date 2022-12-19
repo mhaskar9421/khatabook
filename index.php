@@ -228,15 +228,23 @@
                         while($row = mysqli_fetch_array($rlt)){  // feching with while loop.
                           echo "<tr>";
                           // echo "<td>" . $row['id'] . "</td>";
+<<<<<<< HEAD
                                         echo "<td>" . $row['id'] . "</td>";
+=======
+>>>>>>> 4e1ba0d8bccb14b4e6e1a5b6a3a64cced7accfb3
                                         echo "<td>" . $row['fname'] . "</td>";  // these are our databese table colunm name.
                                         echo "<td>" . $row['mob'] . "</td>";
                                         echo "<td>" . $row['ygive'] . "</td>";
                                         echo "<td>" . $row['yget'] . "</td>";
                                         echo "<td>";     // below <a> tag for action colunm. when we need we can use it.
+<<<<<<< HEAD
                                          echo '<a href="update.php?id='. $row['id'] .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
                                          echo '<a href="delete.php?id='. $row['id'] .'" class="mr-3" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash">Dlt</span></a>';
                                         // echo '<a href="delete.php?id='. $row['id'] .'" title="Delete Record"><span class="fa fa-trash"></span></a>';
+=======
+                                        //echo '<a href="update.php?id='. $row['id'] .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
+                                         // echo '<a href="delete.php?id='. $row['id'] .'" title="Delete Record"><span class="fa fa-trash"></span></a>';
+>>>>>>> 4e1ba0d8bccb14b4e6e1a5b6a3a64cced7accfb3
                                         echo "</td>";
                                         echo "</tr>";
                                       }
@@ -368,22 +376,22 @@
         
 
 
-        <form action="add_customer.php" method="POST">
+        <form action="add_insert.php" method="POST">
         <div class="form-group">
           <label for="name">Name</label>
-          <input type="text" id="name" name="fname" class="form-control" data-required="true" >
+          <input type="text" id="fname" name="fname" class="form-control" data-required="true" >
         </div>
 
         <div class="form-group">
-          <label for="name">Mobile Number</label>
+          <label for="mob">Mobile Number</label>
           <input type="number" id="mob" name="mob" class="form-control" data-required="true" >
       
           <div class="form-group">
-          <label for="name">You Will Give</label>
+          <label for="ygive">You Will Give</label>
           <input type="number" id="ygive" name="ygive" class="form-control" data-required="true" >
       
           <div class="form-group">
-          <label for="name">You Will Get</label>
+          <label for="yget">You Will Get</label>
           <input type="number" id="yget" name="yget" class="form-control" data-required="true" >
 
 
